@@ -1,7 +1,6 @@
 # By Mark Neyrinck, 
 
 import numpy as np
-import pylab as plt
 from scipy.spatial import ConvexHull#,Voronoi,voronoi_plot_2d
 
 def lift_paraboloid(xy, pot):
