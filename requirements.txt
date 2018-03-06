@@ -69,7 +69,6 @@ magenta==0.3.2
 Markdown==2.6.9
 MarkupSafe==1.0
 matplotlib==2.1.2
-mayavi==4.5.0
 mercantile==1.0.0
 mido==1.2.6
 mir-eval==0.4
