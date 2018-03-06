@@ -45,8 +45,6 @@ funcsigs==1.0.2
 functools32==3.2.3.post2
 future==0.16.0
 futures==3.1.1
-gbdx-auth==0.2.4
-gbdxtools==0.13.8
 html5lib==1.0.1
 idna==2.6
 intervaltree==2.1.0
