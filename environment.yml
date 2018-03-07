@@ -1,5 +1,5 @@
 channels:
   - conda-forge
+dependencies:
   - bqplot
-  - defaults
-  - numpy
+  - numpy>=1.13,<1.14  # prevent warning in pyplot demo re: dtypes
