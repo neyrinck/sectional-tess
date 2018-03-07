@@ -1,6 +1,6 @@
 channels:
   - conda-forge
 dependencies:
-  - bqplot
-  - scipy
+  - bqplot==0.10.5
+  - scipy==1.0.0
   - numpy>=1.13,<1.14  # prevent warning in pyplot demo re: dtypes
