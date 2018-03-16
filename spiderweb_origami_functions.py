@@ -5,6 +5,23 @@ from matplotlib import collections
 from matplotlib.patches import Polygon
 
 def plot_mink_fold(vor,delaun, alpha,rotangle):
+    """
+    Generates an origami-tessellation crease pattern from a spiderweb geometry.
+    
+    'vor' and 'delaun' are voronoi or delaunay tessellations, generated from
+    the native scipy.spatial.Delaunay or .Voronoi tessellations, or from
+    our 'sectional-tess' functions, sectional_voronoi and sectional_delaunay.
+    
+    'alpha' is the scaling factor between the voronoi and delaunay 
+    tessellations. alpha=1 gives the same size to both; large alpha gives 
+    large twist fold (Delaunay) triangles, while small alpha gives large
+    Voronoi polygons inbetween
+
+    'rotangle' is the rotation angle, in degrees. rotangle=0 keeps vor and
+    delaun tessellations perpendicular. A typical origami twist angle 
+    (~ 20 degr) will have rotangle 90 +/- 20.
+    """
+
     fullvorv = vor.vertices
     nvertstot = fullvorv.shape[0]
     nsimps = delaun.simplices.shape[0]
