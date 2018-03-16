@@ -29,14 +29,22 @@ class Delaunay_from_ConvexHull:
         else:
             self.faceup = faceup
 
+        #back out new indices for neighbors after faceup ordering
+        allsimps = np.arange(ch.simplices.shape[0])
+        isinfaceup = np.isin(allsimps,self.faceup)
+        revindex = (allsimps + 1) * isinfaceup
+        uniq,revindex = np.unique(revindex,return_inverse=True)
+        revindex -= 1
+
         self.points = ch.points[:,:-1]
         self.simplices = ch.simplices[self.faceup]
-        self.neighbors = ch.neighbors[self.faceup]
+        self.neighbors = revindex[ch.neighbors[self.faceup]]
         self.equations = ch.equations[self.faceup]
         self.coplanar = ch.coplanar
 
     def get_faceup(self,ch):
-        return np.where(np.dot(ch.equations[:,0:-1], [0, 0, -1]) > 1e-6)[0]
+        isfaceup = (np.dot(ch.equations[:,0:-1], [0, 0, -1]) > 1e-6)
+        return np.where(isfaceup)[0]
 
 
 class Voronoi_from_ConvexHull:
